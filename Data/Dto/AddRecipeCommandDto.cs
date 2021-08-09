@@ -1,22 +1,19 @@
 ﻿using Recipe_Api.Data.Entities;
+using System;
 using System.Collections.Generic;
-
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Recipe_Api.Data.Dto
 {
-    public class RecipeDto
+    public class AddRecipeCommandDto
     {
-        public int RecipeId { get; set; }
         public string RecipeName { get; set; }
         public string RecipeDescription { get; set; }
         public int PersonNumber { get; set; }
         public int CookingTime { get; set; }
+        public List<string> IngredientItems { get; set; }
         public List<string> Tags { get; set; }
-        public int Likes { get; set; }
-        public int Stars { get; set; }
-
-        //public List<IngredientItem> IngredientItems { get; set; }
-        //public List<Step> Steps { get; set; }
-        //public string Photo { get; set; }
+        public List<string> Steps { get; set; }
     }
 }

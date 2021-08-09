@@ -17,13 +17,11 @@ namespace Recipe_Api.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new StepConfiguration());
-            modelBuilder.ApplyConfiguration(new TagConfiguration());
-            modelBuilder.ApplyConfiguration(new IngredientItemConfiguration());
+            modelBuilder.ApplyConfiguration(new RecipeConfiguration());        
         }
 
 
-        public DbSet<Step> Steps { get; set; }
+        //public DbSet<Step> Steps { get; set; }
         //public DbSet<Recipe> Recipe { get; set; }
         //public DbSet<Tag> Tag { get; set; }
 

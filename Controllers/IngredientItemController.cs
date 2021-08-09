@@ -28,9 +28,10 @@ namespace Recipe_Api.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] IngredientItemDto value)
+        public void Post([FromBody] IngredientItemDto value/*, [FromBody] IngredientItemDto value2*/)
         {
             _IngredientItemrepository.Add(value);
+            //_IngredientItemrepository.Add(value2);
         }
     }
 }
