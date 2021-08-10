@@ -1,7 +1,6 @@
 ﻿using Recipe_Api.Data.Entities;
 using System.Collections.Generic;
 
-
 namespace Recipe_Api.Data.Dto
 {
     public class RecipeDto
@@ -14,9 +13,7 @@ namespace Recipe_Api.Data.Dto
         public List<string> Tags { get; set; }
         public int Likes { get; set; }
         public int Stars { get; set; }
-
-        //public List<IngredientItem> IngredientItems { get; set; }
-        //public List<Step> Steps { get; set; }
-        //public string Photo { get; set; }
+        public List<IngredientItem> IngredientItems { get; set; }
+        public List<Step> Steps { get; set; }
     }
 }

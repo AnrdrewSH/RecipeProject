@@ -23,13 +23,9 @@ namespace Recipe_Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<IStepRepository, StepRepository>();
-            services.AddScoped<ITagRepository, TagRepository>();
-            services.AddScoped<IIngredientItemRepository, IngredientItemRepository>();
             services.AddScoped<IRecipeRepository, RecipeRepository>();
             services.AddScoped<IRecipeService, RecipeService>();
 
@@ -41,13 +37,7 @@ namespace Recipe_Api
             {
                 configuration.RootPath = "CulinaryRecipes/dist";
             });
-
-            //services.AddTransient<IRecipeOutputData, RecipeRepository>();
-            //services.AddTransient<ITag, TagRepository>();
-
         }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -66,9 +56,6 @@ namespace Recipe_Api
 
             app.UseSpa(spa =>
             {
-                // To learn more about options for serving an Angular SPA from ASP.NET Core,
-                // see https://go.microsoft.com/fwlink/?linkid=864501
-
                 spa.Options.SourcePath = "CulinaryRecipes";
 
                 if (env.IsDevelopment())

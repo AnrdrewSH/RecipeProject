@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Recipe_Api.Data.Entities
+﻿namespace Recipe_Api.Data.Entities
 {
     public class IngredientItem
     {

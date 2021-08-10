@@ -12,7 +12,6 @@ namespace Recipe_Api.Data.DbInfrasructure
                 .HasKey(item => item.Id);
             builder.Property(x => x.IngredientItemName).IsRequired();
             builder.Property(x => x.Products).IsRequired();
-
         }
     }
 }

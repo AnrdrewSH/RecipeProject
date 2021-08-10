@@ -1,12 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Recipe_Api.Data.Dto;
 using Recipe_Api.Data.Entities;
 using Recipe_Api.Data.Interfaces;
 using Recipe_Api.Dblnfrastructure;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Recipe_Api.Data.Repository
 {
@@ -23,14 +19,9 @@ namespace Recipe_Api.Data.Repository
         {
             _context.Set<Recipe>().Add(newRecipe);
         }
-
-        //private IQueryable<Recipe> GetQuery()
-        //{
-        //    return _context.Set<Recipe>()
-        //        //.Include(x => x.Tags)
-        //        .Include(x => x.Steps)
-        //        //.Include(x => x.Ingredients)
-        //        .AsQueryable();
-        //}
+        public void GetById(int id)
+        {
+            _context.Set<Recipe>().Include(item => item.Tags).Where(item => item.RecipeId == id);
+        }
     }
 }

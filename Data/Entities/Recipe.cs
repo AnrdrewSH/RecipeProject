@@ -1,5 +1,4 @@
-﻿using Recipe_Api.Data.Dto;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 
 namespace Recipe_Api.Data.Entities
@@ -16,6 +15,5 @@ namespace Recipe_Api.Data.Entities
         public List<Step> Steps { get; set; }
         public int Likes { get; set; }
         public int Stars { get; set; }
-        //public string Photo { get; set; }
     }
 }

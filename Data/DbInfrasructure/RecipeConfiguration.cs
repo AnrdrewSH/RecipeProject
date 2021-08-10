@@ -1,10 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Recipe_Api.Data.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Recipe_Api.Data.DbInfrasructure
 {
@@ -18,6 +14,18 @@ namespace Recipe_Api.Data.DbInfrasructure
             builder.Property(item => item.RecipeDescription).IsRequired();
             builder.Property(item => item.PersonNumber).IsRequired();
             builder.Property(item => item.CookingTime).IsRequired();
+            builder.HasMany(item => item.Tags)
+                .WithOne()
+                .HasForeignKey(item => item.RecipeId)
+                .OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(item => item.Steps)
+                .WithOne()
+                .HasForeignKey(item => item.RecipeId)
+                .OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(item => item.IngredientItems)
+                .WithOne()
+                .HasForeignKey(item => item.RecipeId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
