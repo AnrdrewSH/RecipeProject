@@ -1,4 +1,4 @@
-﻿using Recipe_Api.Data.Entities;
+﻿using Domain.Entities;
 using System.Collections.Generic;
 
 namespace Recipe_Api.Data.Dto

@@ -1,3 +1,8 @@
+using Application;
+using Application.Services.RecipeServices;
+using Domain.Interfaces;
+using Infrastructure;
+using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -5,11 +10,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Recipe_Api.Data;
-using Recipe_Api.Data.Interfaces;
-using Recipe_Api.Data.Repository;
-using Recipe_Api.Dblnfrastructure;
-using Recipe_Api.test_commands;
 
 namespace Recipe_Api
 {

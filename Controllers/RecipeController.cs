@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Recipe_Api.Data.Interfaces;
-using Recipe_Api.Dblnfrastructure;
-using Recipe_Api.test_commands;
+﻿using Application;
+using Application.Services.Entities;
+using Application.Services.RecipeServices;
+using Domain.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Recipe_Api.Controllers
 {
@@ -21,6 +22,7 @@ namespace Recipe_Api.Controllers
         }
 
         [HttpPost]
+
         public int AddRecipe()
         {
             var newRecipe = _recipeService.AddRecipe(new AddRecipeCommand());

@@ -1,11 +1,13 @@
-﻿using Recipe_Api.Data.Dto;
-using Recipe_Api.Data.Entities;
+﻿using Application.Services.Entities;
+using Domain.Entities;
+using Recipe_Api.Data.Dto;
 using System.Linq;
 
 namespace Recipe_Api.test_commands
 {
     public static class RecipeConverter
     {
+
         public static Recipe Convert(this AddRecipeCommand addRecipeDto)
         {
             return new Recipe
@@ -30,6 +32,7 @@ namespace Recipe_Api.test_commands
                 }).ToList()
             };
         }
+
         public static RecipeDto ConvertToRecipeDto(this Recipe recipe)
         {
             return new RecipeDto
@@ -44,5 +47,6 @@ namespace Recipe_Api.test_commands
                 Tags = recipe.Tags.Select(x => x.Name).ToList()
             };
         }
+
     }
 }
