@@ -22,7 +22,6 @@ namespace Recipe_Api.Controllers
         }
 
         [HttpPost]
-
         public int AddRecipe()
         {
             var newRecipe = _recipeService.AddRecipe(new AddRecipeCommand());

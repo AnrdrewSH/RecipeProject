@@ -31,7 +31,7 @@ namespace Recipe_Api
 
             const string connectionString = @"Data Source=LAPTOP-0NI53OGU\SQLEXPRESS;Initial Catalog=MySecondDB;Pooling=true;Integrated Security=SSPI";
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
-            services.AddScoped<IUnitOfWork>(sp => sp.GetService<AppDbContext>());
+            services.AddScoped<IUnitOfWork>(sp => (IUnitOfWork)sp.GetService<AppDbContext>());
 
             services.AddSpaStaticFiles(configuration =>
             {

@@ -6,7 +6,6 @@ namespace Infrastructure.Configurations
 {
     public class RecipeConfiguration : IEntityTypeConfiguration<Recipe>
     {
-
         public void Configure(EntityTypeBuilder<Recipe> builder)
         {
             builder.ToTable("Recipes")
@@ -28,6 +27,5 @@ namespace Infrastructure.Configurations
                 .HasForeignKey(item => item.RecipeId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
-
     }
 }

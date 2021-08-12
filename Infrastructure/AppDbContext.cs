@@ -5,7 +5,6 @@ namespace Infrastructure
 {
     public class AppDbContext : DbContext
     {
-
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
         { }
@@ -19,6 +18,5 @@ namespace Infrastructure
         {
             modelBuilder.ApplyConfiguration(new RecipeConfiguration());        
         }
-
     }
 }

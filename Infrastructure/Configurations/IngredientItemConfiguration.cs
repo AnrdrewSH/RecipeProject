@@ -6,7 +6,6 @@ namespace Infrastructure.Configurations
 {
     public class IngredientItemConfiguration : IEntityTypeConfiguration<IngredientItem>
     {
-
         public void Configure(EntityTypeBuilder<IngredientItem> builder)
         {
             builder.ToTable("IngredientItems")
@@ -14,6 +13,5 @@ namespace Infrastructure.Configurations
             builder.Property(x => x.IngredientItemName).IsRequired();
             builder.Property(x => x.Products).IsRequired();
         }
-
     }
 }

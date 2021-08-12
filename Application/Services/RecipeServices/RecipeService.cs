@@ -1,6 +1,7 @@
 ﻿using Application.Services.Entities;
 using Domain.Entities;
 using Domain.Interfaces;
+using Recipe_Api;
 
 namespace Application.Services.RecipeServices
 {
@@ -23,6 +24,5 @@ namespace Application.Services.RecipeServices
             _recipeRepository.Add(recipe);
             return recipe;
         }
-
     }
 }
