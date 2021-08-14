@@ -10,6 +10,8 @@ namespace Infrastructure.Configurations
         {
             builder.ToTable("Steps")
                 .HasKey(item => item.Id);
+            builder.Property(item => item.Id)
+                .HasColumnName("Id");
             builder.Property(x => x.StepDescription).IsRequired();
         }
     }

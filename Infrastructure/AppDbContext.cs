@@ -9,14 +9,12 @@ namespace Infrastructure
             : base(options)
         { }
 
-        public void Commit()
-        {
-            SaveChanges();
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new RecipeConfiguration());        
+            modelBuilder.ApplyConfiguration(new RecipeConfiguration());
+            modelBuilder.ApplyConfiguration(new IngredientItemConfiguration());
+            modelBuilder.ApplyConfiguration(new StepConfiguration());
+            modelBuilder.ApplyConfiguration(new TagConfiguration());
         }
     }
 }

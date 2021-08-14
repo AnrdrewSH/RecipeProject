@@ -1,4 +1,4 @@
-﻿namespace Recipe_Api.Data.Dto
+﻿namespace RecipeApi.Data.Dto
 {
     public class IngredientItemDto
     {

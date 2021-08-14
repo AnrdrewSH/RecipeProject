@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Recipe_Api
+namespace RecipeApi
 {
     public class Startup
     {
@@ -28,10 +28,10 @@ namespace Recipe_Api
             services.AddControllers();
             services.AddScoped<IRecipeRepository, RecipeRepository>();
             services.AddScoped<IRecipeService, RecipeService>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             const string connectionString = @"Data Source=LAPTOP-0NI53OGU\SQLEXPRESS;Initial Catalog=MySecondDB;Pooling=true;Integrated Security=SSPI";
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
-            services.AddScoped<IUnitOfWork>(sp => (IUnitOfWork)sp.GetService<AppDbContext>());
 
             services.AddSpaStaticFiles(configuration =>
             {

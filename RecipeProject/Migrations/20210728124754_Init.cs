@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Recipe_Api.Migrations
+namespace RecipeApi.Migrations
 {
     public partial class Init : Migration
     {

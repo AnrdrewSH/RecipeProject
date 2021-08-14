@@ -4,7 +4,7 @@ namespace Domain.Entities
 {
     public class Recipe
     {
-        public int RecipeId { get; }
+        public int RecipeId { get; set; }
         public string RecipeName { get; set; }
         public string RecipeDescription { get; set; }
         public int PersonNumber { get; set; }
@@ -12,7 +12,5 @@ namespace Domain.Entities
         public List<IngredientItem> IngredientItems { get; set; }
         public List<Tag> Tags { get; set; }
         public List<Step> Steps { get; set; }
-        public int Likes { get; set; }
-        public int Stars { get; set; }
     }
 }

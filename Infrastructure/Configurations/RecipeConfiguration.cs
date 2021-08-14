@@ -10,6 +10,8 @@ namespace Infrastructure.Configurations
         {
             builder.ToTable("Recipes")
                 .HasKey(item => item.RecipeId);
+            builder.Property(item => item.RecipeId)
+                .HasColumnName("Id");
             builder.Property(item => item.RecipeName).IsRequired();
             builder.Property(item => item.RecipeDescription).IsRequired();
             builder.Property(item => item.PersonNumber).IsRequired();

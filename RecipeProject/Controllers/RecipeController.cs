@@ -1,10 +1,11 @@
 ﻿using Application;
-using Application.Services.Entities;
 using Application.Services.RecipeServices;
+using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using static Application.Services.RecipeServices.RecipeService;
 
-namespace Recipe_Api.Controllers
+namespace RecipeApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -21,12 +22,18 @@ namespace Recipe_Api.Controllers
             _recipeService = recipeService;
         }
 
-        [HttpPost]
-        public int AddRecipe()
+        [HttpGet("{id:int}")]
+        public Recipe GetRecipe(int id)
         {
-            var newRecipe = _recipeService.AddRecipe(new AddRecipeCommand());
+            Recipe recipe = _recipeRepository.GetById(id);
+            return recipe;
+        }
+
+        [HttpPost]
+        public void AddRecipe(TempRecipeDto value)
+        {
+            _recipeService.AddRecipe(value);
             _unitOfWork.Commit();
-            return newRecipe.RecipeId;
         }
 
     }

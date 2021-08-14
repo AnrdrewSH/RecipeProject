@@ -10,6 +10,8 @@ namespace Infrastructure.Configurations
         {
             builder.ToTable("Tags")
                 .HasKey(item => item.Id);
+            builder.Property(item => item.Id)
+                .HasColumnName("Id");
             builder.Property(x => x.Name).IsRequired();
         }
     }

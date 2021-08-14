@@ -13,3 +13,5 @@ C:\Users\Андрей\source\repos\RecipesProject\Infrastructure\obj\Debug\net5.
 C:\Users\Андрей\source\repos\RecipesProject\Infrastructure\obj\Debug\net5.0\Infrastructure.dll
 C:\Users\Андрей\source\repos\RecipesProject\Infrastructure\obj\Debug\net5.0\ref\Infrastructure.dll
 C:\Users\Андрей\source\repos\RecipesProject\Infrastructure\obj\Debug\net5.0\Infrastructure.pdb
+C:\Users\Андрей\source\repos\RecipesProject\Infrastructure\bin\Debug\net5.0\Application.dll
+C:\Users\Андрей\source\repos\RecipesProject\Infrastructure\bin\Debug\net5.0\Application.pdb
