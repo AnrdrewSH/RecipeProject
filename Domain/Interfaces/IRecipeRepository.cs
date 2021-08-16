@@ -6,5 +6,6 @@ namespace Domain.Interfaces
     {
         void Add(Recipe recipe);
         Recipe GetById(int id);
+        Recipe[] GetAll();
     }
 }

@@ -17,18 +17,18 @@ namespace Application.Services.RecipeServices
         {
         }
 
-        public Recipe AddRecipe(TempRecipeDto recipeDto)
+        public Recipe AddRecipe(Recipe recipeAdd)
         {
             Recipe recipe = new Recipe
             {
-                RecipeId = recipeDto.RecipeId,
-                RecipeName = recipeDto.RecipeName,
-                RecipeDescription = recipeDto.RecipeDescription,
-                PersonNumber = recipeDto.PersonNumber,
-                CookingTime = recipeDto.CookingTime,
-                Tags = recipeDto.Tags,
-                IngredientItems = recipeDto.IngredientItems,
-                Steps = recipeDto.Steps
+                RecipeId = recipeAdd.RecipeId,
+                RecipeName = recipeAdd.RecipeName,
+                RecipeDescription = recipeAdd.RecipeDescription,
+                PersonNumber = recipeAdd.PersonNumber,
+                CookingTime = recipeAdd.CookingTime,
+                Tags = recipeAdd.Tags,
+                IngredientItems = recipeAdd.IngredientItems,
+                Steps = recipeAdd.Steps
             };
             _recipeRepository.Add(recipe);
             return recipe;

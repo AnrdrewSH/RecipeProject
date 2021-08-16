@@ -19,9 +19,11 @@ namespace Infrastructure.Repositories
             _context.Set<Recipe>().Add(newRecipe);
         }
 
-        public void GetTagById(int id)
+        public Recipe[] GetAll()
         {
-            _context.Set<Recipe>().Include(item => item.Tags).Where(item => item.RecipeId == id);
+            return _context.Set<Recipe>().ToList()
+                .ConvertAll(x => new Recipe { RecipeId = x.RecipeId, RecipeName = x.RecipeName, RecipeDescription = x.RecipeDescription, PersonNumber = x.PersonNumber, CookingTime = x.CookingTime, Tags = x.Tags, Steps = x.Steps, IngredientItems = x.IngredientItems})
+                .ToArray();
         }
 
         public Recipe GetById(int id)

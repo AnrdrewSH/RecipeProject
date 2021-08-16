@@ -3,7 +3,6 @@ using Application.Services.RecipeServices;
 using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using static Application.Services.RecipeServices.RecipeService;
 
 namespace RecipeApi.Controllers
 {
@@ -23,17 +22,23 @@ namespace RecipeApi.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public Recipe GetRecipe(int id)
+        public Recipe GetRecipeById(int id)
         {
             Recipe recipe = _recipeRepository.GetById(id);
             return recipe;
         }
 
         [HttpPost]
-        public void AddRecipe(TempRecipeDto value)
+        public void AddRecipe(Recipe value)
         {
             _recipeService.AddRecipe(value);
             _unitOfWork.Commit();
+        }
+
+        [HttpGet]
+        public Recipe[] Get()
+        {
+            return _recipeRepository.GetAll();
         }
 
     }
