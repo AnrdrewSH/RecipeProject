@@ -6,5 +6,9 @@
         public string IngredientItemName { get; set; }
         public string Products { get; set; }
         public int RecipeId { get; set; }
+        public IngredientItem()
+        {
+
+        }
     }
 }

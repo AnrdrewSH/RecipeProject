@@ -12,5 +12,10 @@ namespace Domain.Entities
         public List<IngredientItem> IngredientItems { get; set; }
         public List<Tag> Tags { get; set; }
         public List<Step> Steps { get; set; }
+
+        public Recipe()
+        {
+
+        }
     }
 }

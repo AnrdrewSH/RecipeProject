@@ -19,16 +19,16 @@ namespace Infrastructure.Repositories
             _context.Set<Recipe>().Add(newRecipe);
         }
 
-        public Recipe[] GetAll()
+        public RecipeDto[] GetAll()
         {
             return _context.Set<Recipe>().ToList()
-                .ConvertAll(x => new Recipe { RecipeId = x.RecipeId, RecipeName = x.RecipeName, RecipeDescription = x.RecipeDescription, PersonNumber = x.PersonNumber, CookingTime = x.CookingTime, Tags = x.Tags, Steps = x.Steps, IngredientItems = x.IngredientItems})
+                .ConvertAll(x => new RecipeDto { RecipeName = x.RecipeName, RecipeDescription = x.RecipeDescription, PersonNumber = x.PersonNumber, CookingTime = x.CookingTime, Tags = x.Tags, Steps = x.Steps, IngredientItems = x.IngredientItems })
                 .ToArray();
         }
 
         public Recipe GetById(int id)
         {
-            return GetQuery().FirstOrDefault(x => x.RecipeId == id);
+            return _context.Set<Recipe>().Include(item => item.Tags).FirstOrDefault(x => x.RecipeId == id);
         }
 
         private IQueryable<Recipe> GetQuery()

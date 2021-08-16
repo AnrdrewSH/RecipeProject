@@ -1,4 +1,5 @@
-﻿{
+{
+  "AllowedHosts": "*",
   "Logging": {
     "LogLevel": {
       "Default": "Information",
@@ -6,5 +7,12 @@
       "Microsoft.Hosting.Lifetime": "Information"
     }
   },
-  "AllowedHosts": "*"
+  "profiles": {
+    "Recipe Api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:5001/",
+      "applicationUrl": "http://localhost:5001/"
+    }
+  }
 }

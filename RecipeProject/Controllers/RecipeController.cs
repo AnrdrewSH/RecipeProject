@@ -29,14 +29,14 @@ namespace RecipeApi.Controllers
         }
 
         [HttpPost]
-        public void AddRecipe(Recipe value)
+        public void AddRecipe(RecipeDto recipeDto)
         {
-            _recipeService.AddRecipe(value);
+            _recipeService.AddRecipe(recipeDto);
             _unitOfWork.Commit();
         }
 
         [HttpGet]
-        public Recipe[] Get()
+        public RecipeDto[] GetAll()
         {
             return _recipeRepository.GetAll();
         }

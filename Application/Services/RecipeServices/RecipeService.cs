@@ -1,6 +1,6 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace Application.Services.RecipeServices
 {
@@ -17,33 +17,26 @@ namespace Application.Services.RecipeServices
         {
         }
 
-        public Recipe AddRecipe(Recipe recipeAdd)
+        public Recipe AddRecipe(RecipeDto recipeDto)
         {
-            Recipe recipe = new Recipe
-            {
-                RecipeId = recipeAdd.RecipeId,
-                RecipeName = recipeAdd.RecipeName,
-                RecipeDescription = recipeAdd.RecipeDescription,
-                PersonNumber = recipeAdd.PersonNumber,
-                CookingTime = recipeAdd.CookingTime,
-                Tags = recipeAdd.Tags,
-                IngredientItems = recipeAdd.IngredientItems,
-                Steps = recipeAdd.Steps
-            };
+            Recipe recipe = ConvertToRecipe(recipeDto);
             _recipeRepository.Add(recipe);
             return recipe;
         }
 
-        public class TempRecipeDto
+        private static Recipe ConvertToRecipe(RecipeDto recipeDto)
         {
-            public int RecipeId { get; set; }
-            public string RecipeName { get; set; }
-            public string RecipeDescription { get; set; }
-            public int PersonNumber { get; set; }
-            public int CookingTime { get; set; }
-            public List<Tag> Tags { get; set; }
-            public List<IngredientItem> IngredientItems { get; set; }
-            public List<Step> Steps { get; set; }
+            return new Recipe
+            {
+                RecipeId = 1,
+                RecipeName = recipeDto.RecipeName,
+                RecipeDescription = recipeDto.RecipeDescription,
+                PersonNumber = recipeDto.PersonNumber,
+                CookingTime = recipeDto.CookingTime,
+                Tags = recipeDto.Tags.Select(x => new Tag { Name = x.Name }).ToList(),
+                IngredientItems = recipeDto.IngredientItems.Select(x => new IngredientItem { IngredientItemName = x.IngredientItemName, Products = x.Products }).ToList(),
+                Steps = recipeDto.Steps.Select(x => new Step { StepDescription = x.StepDescription }).ToList(),
+            };
         }
 
     }

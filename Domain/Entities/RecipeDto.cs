@@ -1,7 +1,6 @@
-﻿using Domain.Entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace RecipeApi.Data.Dto
+namespace Domain.Entities
 {
     public class RecipeDto
     {
@@ -10,8 +9,8 @@ namespace RecipeApi.Data.Dto
         public string RecipeDescription { get; set; }
         public int PersonNumber { get; set; }
         public int CookingTime { get; set; }
-        public List<Tag> Tags { get; set; }
         public List<IngredientItem> IngredientItems { get; set; }
+        public List<Tag> Tags { get; set; }
         public List<Step> Steps { get; set; }
     }
 }
