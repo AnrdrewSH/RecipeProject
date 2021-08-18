@@ -10,6 +10,7 @@ namespace Infrastructure.Repositories
     {
         private AppDbContext _context;
         private IUnitOfWork _unitOfWork;
+
         public RecipeRepository(AppDbContext context, IUnitOfWork unitOfWork)
         {
             _context = context;

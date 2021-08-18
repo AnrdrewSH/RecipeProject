@@ -1,5 +1,4 @@
-﻿using Application;
-using Application.Services.RecipeServices;
+﻿using Application.Services.RecipeServices;
 using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -12,12 +11,10 @@ namespace RecipeApi.Controllers
     {
         private readonly IRecipeRepository _recipeRepository;
         private readonly IRecipeService _recipeService;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public RecipeController(IRecipeRepository recipeRepository, IUnitOfWork unitOfWork, IRecipeService recipeService)
+        public RecipeController(IRecipeRepository recipeRepository, IRecipeService recipeService)
         {
             _recipeRepository = recipeRepository;
-            _unitOfWork = unitOfWork;
             _recipeService = recipeService;
         }
 
