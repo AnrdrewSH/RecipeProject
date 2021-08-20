@@ -1,9 +1,9 @@
-﻿using Domain.Entities;
+﻿using Application.RecipeDtoEntities;
 
 namespace Application.Services.RecipeServices
 {
     public interface IRecipeService
     {
-        void AddRecipe(FullRecipeDto recipeDto);
+        void AddRecipe(RecipeDto recipeDto);
     }
 }

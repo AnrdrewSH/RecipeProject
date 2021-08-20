@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Infrastructure\\Infrastructure.csproj": {}
+    "C:\\TlPractice\\RecipeProject\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Application\\Application.csproj": {
+    "C:\\TlPractice\\RecipeProject\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\TlPractice\\RecipeProject\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\Андрей\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Application\\obj\\",
+        "projectPath": "C:\\TlPractice\\RecipeProject\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\gleb.eroshkin\\.nuget\\packages\\",
+        "outputPath": "C:\\TlPractice\\RecipeProject\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Андрей\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gleb.eroshkin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,14 +22,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://nuget.travelline.lan/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Domain\\Domain.csproj"
+              "C:\\TlPractice\\RecipeProject\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\TlPractice\\RecipeProject\\Domain\\Domain.csproj"
               }
             }
           }
@@ -58,21 +59,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Domain\\Domain.csproj": {
+    "C:\\TlPractice\\RecipeProject\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\TlPractice\\RecipeProject\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Андрей\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Domain\\obj\\",
+        "projectPath": "C:\\TlPractice\\RecipeProject\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\gleb.eroshkin\\.nuget\\packages\\",
+        "outputPath": "C:\\TlPractice\\RecipeProject\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Андрей\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gleb.eroshkin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -80,6 +81,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://nuget.travelline.lan/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -112,21 +114,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\TlPractice\\RecipeProject\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\TlPractice\\RecipeProject\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Андрей\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Infrastructure\\obj\\",
+        "projectPath": "C:\\TlPractice\\RecipeProject\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\gleb.eroshkin\\.nuget\\packages\\",
+        "outputPath": "C:\\TlPractice\\RecipeProject\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Андрей\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gleb.eroshkin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -134,17 +136,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://nuget.travelline.lan/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Application\\Application.csproj"
+              "C:\\TlPractice\\RecipeProject\\Application\\Application.csproj": {
+                "projectPath": "C:\\TlPractice\\RecipeProject\\Application\\Application.csproj"
               },
-              "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Domain\\Domain.csproj"
+              "C:\\TlPractice\\RecipeProject\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\TlPractice\\RecipeProject\\Domain\\Domain.csproj"
               }
             }
           }
@@ -183,7 +186,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

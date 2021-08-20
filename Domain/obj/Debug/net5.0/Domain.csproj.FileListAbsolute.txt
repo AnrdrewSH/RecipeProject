@@ -10,3 +10,14 @@ C:\Users\Андрей\source\repos\RecipesProject\Domain\obj\Debug\net5.0\Domain
 C:\Users\Андрей\source\repos\RecipesProject\Domain\obj\Debug\net5.0\Domain.dll
 C:\Users\Андрей\source\repos\RecipesProject\Domain\obj\Debug\net5.0\ref\Domain.dll
 C:\Users\Андрей\source\repos\RecipesProject\Domain\obj\Debug\net5.0\Domain.pdb
+C:\TlPractice\RecipeProject\Domain\bin\Debug\net5.0\Domain.deps.json
+C:\TlPractice\RecipeProject\Domain\bin\Debug\net5.0\Domain.dll
+C:\TlPractice\RecipeProject\Domain\bin\Debug\net5.0\ref\Domain.dll
+C:\TlPractice\RecipeProject\Domain\bin\Debug\net5.0\Domain.pdb
+C:\TlPractice\RecipeProject\Domain\obj\Debug\net5.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\TlPractice\RecipeProject\Domain\obj\Debug\net5.0\Domain.AssemblyInfoInputs.cache
+C:\TlPractice\RecipeProject\Domain\obj\Debug\net5.0\Domain.AssemblyInfo.cs
+C:\TlPractice\RecipeProject\Domain\obj\Debug\net5.0\Domain.csproj.CoreCompileInputs.cache
+C:\TlPractice\RecipeProject\Domain\obj\Debug\net5.0\Domain.dll
+C:\TlPractice\RecipeProject\Domain\obj\Debug\net5.0\ref\Domain.dll
+C:\TlPractice\RecipeProject\Domain\obj\Debug\net5.0\Domain.pdb

@@ -2,7 +2,7 @@
 
 namespace Domain.Entities
 {
-    public class FullRecipeDto
+    public class Recipe
     {
         public int RecipeId { get; set; }
         public string RecipeName { get; set; }

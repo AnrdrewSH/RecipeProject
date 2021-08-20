@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BDZx3a5d4QRZCAVhvRA6YYKm+nu3PYqtziFUtiCjli25shBO4JncXOOClHmb20nLRM2f2vBuivREbAU6U0CZYA==",
+  "dgSpecHash": "ThQznHt4v8C5gl/jCZe24dZoCySHwA5SLbHW8nLRRkWA0JR48CFjP/Ew6QyxqzfwIFqec7D01WsGseNJgWcojg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\TlPractice\\RecipeProject\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

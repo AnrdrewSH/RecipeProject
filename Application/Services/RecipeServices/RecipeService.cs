@@ -1,6 +1,7 @@
-﻿using Application.Services.Converters;
+﻿using Application.RecipeDtoEntities;
+using Application.Services.Converters;
 using Domain.Entities;
-using Domain.Interfaces;
+using Domain.Repository;
 
 namespace Application.Services.RecipeServices
 {
@@ -13,9 +14,9 @@ namespace Application.Services.RecipeServices
             _recipeRepository = recipeRepository;
         }
 
-        public void AddRecipe(FullRecipeDto recipeDto)
+        public void AddRecipe(RecipeDto recipeDto)
         {
-            FullRecipe recipe = FullRecipeConverter.ConvertToRecipe(recipeDto);
+            Recipe recipe = FullRecipeConverter.ConvertToRecipe(recipeDto);
             _recipeRepository.Add(recipe);
         }
 

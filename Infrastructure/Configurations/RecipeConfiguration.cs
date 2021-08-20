@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Configurations
 {
-    public class RecipeConfiguration : IEntityTypeConfiguration<FullRecipe>
+    public class RecipeConfiguration : IEntityTypeConfiguration<Recipe>
     {
-        public void Configure(EntityTypeBuilder<FullRecipe> builder)
+        public void Configure(EntityTypeBuilder<Recipe> builder)
         {
             builder.ToTable("Recipes")
                 .HasKey(item => item.RecipeId);

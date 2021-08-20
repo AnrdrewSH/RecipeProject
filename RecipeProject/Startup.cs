@@ -1,6 +1,7 @@
 using Application;
+using Application.Services.Converters;
 using Application.Services.RecipeServices;
-using Domain.Interfaces;
+using Domain.Repository;
 using Infrastructure;
 using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -10,12 +11,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.IO;
 
 namespace RecipeApi
 {
     public class Startup
     {
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -29,8 +30,10 @@ namespace RecipeApi
             services.AddScoped<IRecipeRepository, RecipeRepository>();
             services.AddScoped<IRecipeService, RecipeService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IRecipeDtoConverter, RecipeDtoConverter>();
 
-            const string connectionString = @"Data Source=LAPTOP-0NI53OGU\SQLEXPRESS;Initial Catalog=MySecondDB;Pooling=true;Integrated Security=SSPI";
+            IConfiguration config = GetConfig();
+            string connectionString = config.GetConnectionString( "Recipes" );
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 
             services.AddSpaStaticFiles(configuration =>
@@ -63,6 +66,15 @@ namespace RecipeApi
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+        }
+
+        private static IConfiguration GetConfig()
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath( Directory.GetCurrentDirectory() )
+                .AddJsonFile( "appsettings.json" );
+
+            return builder.Build();
         }
     }
 }
