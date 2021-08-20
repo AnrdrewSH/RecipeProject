@@ -27,19 +27,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gleb.eroshkin\\.nuget\\packages\\": {}
+    "C:\\Users\\Андрей\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\TlPractice\\RecipeProject\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\TlPractice\\RecipeProject\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\gleb.eroshkin\\.nuget\\packages\\",
-      "outputPath": "C:\\TlPractice\\RecipeProject\\Application\\obj\\",
+      "projectPath": "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\Андрей\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\gleb.eroshkin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Андрей\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -47,15 +47,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://nuget.travelline.lan/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\TlPractice\\RecipeProject\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\TlPractice\\RecipeProject\\Domain\\Domain.csproj"
+            "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Андрей\\source\\repos\\RecipesProject\\Domain\\Domain.csproj"
             }
           }
         }
@@ -84,7 +83,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

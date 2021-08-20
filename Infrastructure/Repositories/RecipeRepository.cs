@@ -22,7 +22,11 @@ namespace Infrastructure.Repositories
 
         public List<Recipe> GetAll()
         {
-            return _context.Set<Recipe>().ToList();
+            return _context.Set<Recipe>()
+                .Include(item => item.Tags)
+                .Include(item => item.Steps)
+                .Include(item => item.IngredientItems)
+                .ToList();
         }
 
         public Recipe GetById( int id )
