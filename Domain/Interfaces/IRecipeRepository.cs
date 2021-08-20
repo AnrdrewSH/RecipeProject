@@ -4,8 +4,8 @@ namespace Domain.Interfaces
 {
     public interface IRecipeRepository
     {
-        void Add(Recipe recipe);
-        Recipe GetById(int id);
-        RecipeDto[] GetAll();
+        void Add(FullRecipe recipe);
+        FullRecipe GetById(int id);
+        FullRecipe[] GetAllFullRecipe();
     }
 }

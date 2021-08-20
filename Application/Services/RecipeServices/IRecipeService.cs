@@ -4,7 +4,6 @@ namespace Application.Services.RecipeServices
 {
     public interface IRecipeService
     {
-        void DeleteRecipe();
-        void AddRecipe(RecipeDto recipeDto);
+        void AddRecipe(FullRecipeDto recipeDto);
     }
 }
