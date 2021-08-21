@@ -8,5 +8,6 @@ namespace Domain.Repository
         void Add(Recipe recipe);
         Recipe GetById(int id);
         List<Recipe> GetAll();
+        void DeleteRecipe(int id);
     }
 }

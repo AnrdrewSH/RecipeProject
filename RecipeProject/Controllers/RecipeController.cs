@@ -44,6 +44,13 @@ namespace RecipeApi.Controllers
             _unitOfWork.Commit();
         }
 
+        [HttpDelete( "{id:int}" )]
+        public void DeleteRecipe(int id)
+        {
+            _recipeRepository.DeleteRecipe(id);
+            _unitOfWork.Commit();
+        }
+
         [HttpGet]
         public List<RecipeDto> GetAllFullRecipe()
         {

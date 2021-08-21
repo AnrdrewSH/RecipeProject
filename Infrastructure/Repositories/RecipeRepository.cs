@@ -20,6 +20,12 @@ namespace Infrastructure.Repositories
             _context.Set<Recipe>().Add( newRecipe );
         }
 
+        public void DeleteRecipe(int id)
+        {
+            Recipe recipe = GetById(id);
+            _context.Set<Recipe>().Remove(recipe);
+        }
+
         public List<Recipe> GetAll()
         {
             return _context.Set<Recipe>()
@@ -31,9 +37,17 @@ namespace Infrastructure.Repositories
 
         public Recipe GetById( int id )
         {
-            return _context.Set<Recipe>()
-                .Include( item => item.Tags )
-                .FirstOrDefault( x => x.RecipeId == id );
+            return GetQuery().FirstOrDefault(x => x.RecipeId == id);
         }
+
+        private IQueryable<Recipe> GetQuery()
+        {
+            return _context.Set<Recipe>()
+                .Include(x => x.Tags)
+                .Include(x => x.Steps)
+                .Include(x => x.IngredientItems)
+                .AsQueryable();
+        }
+
     }
 }
