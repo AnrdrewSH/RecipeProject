@@ -30,10 +30,10 @@ namespace RecipeApi.Controllers
             _recipeDtoConverter = recipeDtoConverter;
         }
 
-        [HttpGet( "{id:int}" )]
-        public Recipe GetRecipeById( int id )
+        [HttpGet("{id}")]
+        public Recipe GetRecipeById(int id)
         {
-            Recipe recipe = _recipeRepository.GetById( id );
+            Recipe recipe = _recipeRepository.GetById(id);
             return recipe;
         }
 
@@ -42,12 +42,19 @@ namespace RecipeApi.Controllers
         {
             _recipeService.AddRecipe( recipeDto );
             _unitOfWork.Commit();
-        }
+        }        
 
-        [HttpDelete( "{id:int}" )]
+        [HttpDelete( "{id}" )]
         public void DeleteRecipe(int id)
         {
             _recipeRepository.DeleteRecipe(id);
+            _unitOfWork.Commit();
+        }
+
+        [HttpPut( "{id}" )]
+        public void Put(int id, [FromBody] RecipeDto recipeDto)
+        {
+            _recipeService.Update(id, recipeDto);
             _unitOfWork.Commit();
         }
 

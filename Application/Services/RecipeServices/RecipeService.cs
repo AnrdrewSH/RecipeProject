@@ -20,5 +20,10 @@ namespace Application.Services.RecipeServices
             _recipeRepository.Add(recipe);
         }
 
+        public void Update(int id, RecipeDto recipeDto)
+        {
+            Recipe recipe = FullRecipeConverter.ConvertToRecipe(recipeDto);
+            _recipeRepository.Update(id, recipe);
+        }
     }
 }

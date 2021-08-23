@@ -15,6 +15,7 @@ namespace Application.Services.Converters
         {
             return new RecipeDto
             {
+                RecipeId = recipe.RecipeId,
                 RecipeName = recipe.RecipeName,
                 RecipeDescription = recipe.RecipeDescription,
                 PersonNumber = recipe.PersonNumber,
