@@ -20,10 +20,11 @@ namespace Application.Services.RecipeServices
             _recipeRepository.Add(recipe);
         }
 
-        public void Update(int id, RecipeDto recipeDto)
+        public void Update(RecipeDto recipeDto)
         {
-            Recipe recipe = FullRecipeConverter.ConvertToRecipe(recipeDto);
-            _recipeRepository.Update(id, recipe);
+            var recipe = _recipeRepository.GetById(recipeDto.RecipeId);
+            var updatedRecipe = FullRecipeConverter.ConvertToRecipe(recipeDto);
+            recipe.Update(updatedRecipe);
         }
     }
 }

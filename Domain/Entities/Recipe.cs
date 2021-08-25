@@ -12,5 +12,17 @@ namespace Domain.Entities
         public List<IngredientItem> IngredientItems { get; set; }
         public List<Tag> Tags { get; set; }
         public List<Step> Steps { get; set; }
+
+        public void Update(Recipe recipe)
+        {
+            RecipeName = recipe.RecipeName;
+            RecipeDescription = recipe.RecipeDescription;
+            PersonNumber = recipe.PersonNumber;
+            CookingTime = recipe.CookingTime;
+            IngredientItems = recipe.IngredientItems;
+            Tags = recipe.Tags;
+            Steps = recipe.Steps;
+        }
     }
+    
 }

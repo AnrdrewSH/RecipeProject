@@ -26,18 +26,6 @@ namespace Infrastructure.Repositories
             _context.Set<Recipe>().Remove(recipe);
         }
 
-        public void Update(int id, Recipe recipe)
-        {
-            Recipe newRecipe = _context.Set<Recipe>().FirstOrDefault(item => item.RecipeId == id);
-            newRecipe.RecipeName = recipe.RecipeName;
-            newRecipe.RecipeDescription = recipe.RecipeDescription;
-            newRecipe.PersonNumber = recipe.PersonNumber;
-            newRecipe.CookingTime = recipe.CookingTime;
-            newRecipe.Tags = recipe.Tags;
-            newRecipe.Steps = recipe.Steps;
-            newRecipe.IngredientItems = recipe.IngredientItems;
-        }
-
         public List<Recipe> GetAll()
         {
             return _context.Set<Recipe>()

@@ -38,7 +38,7 @@ namespace RecipeApi
 
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "CulinaryRecipes/dist";
+                configuration.RootPath = "RecipeWeb/dist";
             });
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -59,7 +59,7 @@ namespace RecipeApi
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "CulinaryRecipes";
+                spa.Options.SourcePath = "RecipeWeb";
 
                 if (env.IsDevelopment())
                 {

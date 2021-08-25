@@ -37,6 +37,19 @@ namespace RecipeApi.Controllers
             return recipe;
         }
 
+        [HttpGet]
+        public List<RecipeDto> GetAllFullRecipe()
+        {
+            List<Recipe> recipes = _recipeRepository.GetAll();
+            List<RecipeDto> recipesDtos = new List<RecipeDto>();
+            foreach (var recipe in recipes)
+            {
+                recipesDtos.Add(_recipeDtoConverter.ConvertToRecipeDto(recipe));
+            }
+
+            return recipesDtos;
+        }
+
         [HttpPost]
         public void AddRecipe( [FromBody] RecipeDto recipeDto )
         {
@@ -51,24 +64,12 @@ namespace RecipeApi.Controllers
             _unitOfWork.Commit();
         }
 
-        [HttpPut( "{id}" )]
+        [HttpPut("{id}")]
         public void Put(int id, [FromBody] RecipeDto recipeDto)
         {
-            _recipeService.Update(id, recipeDto);
+            _recipeService.Update(recipeDto);
             _unitOfWork.Commit();
         }
 
-        [HttpGet]
-        public List<RecipeDto> GetAllFullRecipe()
-        {
-            List<Recipe> recipes = _recipeRepository.GetAll();
-            List<RecipeDto> recipesDtos = new List<RecipeDto>();
-            foreach( var recipe in recipes )
-            {
-                recipesDtos.Add( _recipeDtoConverter.ConvertToRecipeDto( recipe ) );
-            }
-
-            return recipesDtos;
-        }
     }
 }
