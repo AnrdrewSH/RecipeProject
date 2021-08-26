@@ -9,5 +9,6 @@ namespace Domain.Repository
         Recipe GetById(int id);
         List<Recipe> GetAll();
         void DeleteRecipe(int id);
+        List<Recipe> GetAllRecipeByTag(string nameoftag);
     }
 }

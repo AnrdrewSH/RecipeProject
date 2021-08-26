@@ -30,7 +30,7 @@ namespace RecipeApi.Controllers
             _recipeDtoConverter = recipeDtoConverter;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public Recipe GetRecipeById(int id)
         {
             Recipe recipe = _recipeRepository.GetById(id);
@@ -41,6 +41,19 @@ namespace RecipeApi.Controllers
         public List<RecipeDto> GetAllFullRecipe()
         {
             List<Recipe> recipes = _recipeRepository.GetAll();
+            List<RecipeDto> recipesDtos = new List<RecipeDto>();
+            foreach (var recipe in recipes)
+            {
+                recipesDtos.Add(_recipeDtoConverter.ConvertToRecipeDto(recipe));
+            }
+
+            return recipesDtos;
+        }
+
+        [HttpGet("{nameoftag}")]
+        public List<RecipeDto> GetRecipeByTag(string nameoftag)
+        {
+            List<Recipe> recipes = _recipeRepository.GetAllRecipeByTag(nameoftag);
             List<RecipeDto> recipesDtos = new List<RecipeDto>();
             foreach (var recipe in recipes)
             {
@@ -64,7 +77,7 @@ namespace RecipeApi.Controllers
             _unitOfWork.Commit();
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public void Put(int id, [FromBody] RecipeDto recipeDto)
         {
             _recipeService.Update(recipeDto);

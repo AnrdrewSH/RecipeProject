@@ -35,6 +35,15 @@ namespace Infrastructure.Repositories
                 .ToList();
         }
 
+        public List<Recipe> GetAllRecipeByTag(string nameoftag)
+        {
+            return _context.Set<Recipe>()
+                .Include(item => item.Tags.FirstOrDefault(x => x.Name == nameoftag))
+                .Include(item => item.Steps)
+                .Include(item => item.IngredientItems)
+                .ToList();
+        }
+
         public Recipe GetById( int id )
         {
             return GetQuery().FirstOrDefault(x => x.RecipeId == id);
