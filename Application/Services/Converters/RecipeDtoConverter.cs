@@ -20,6 +20,8 @@ namespace Application.Services.Converters
                 RecipeDescription = recipe.RecipeDescription,
                 PersonNumber = recipe.PersonNumber,
                 CookingTime = recipe.CookingTime,
+                Likes = recipe.Likes,
+                Stars = recipe.Stars,
                 Tags = recipe.Tags
                     .Select( x => new TagDto
                     {

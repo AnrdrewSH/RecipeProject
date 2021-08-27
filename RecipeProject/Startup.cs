@@ -34,7 +34,8 @@ namespace RecipeApi
 
             IConfiguration config = GetConfig();
             string connectionString = config.GetConnectionString( "Recipes" );
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString,
+                o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
 
             services.AddSpaStaticFiles(configuration =>
             {

@@ -6,10 +6,11 @@ using Domain.Entities;
 using Domain.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RecipeApi.Controllers
 {
-    [Route( "api/[controller]" )]
+    [Route("api/[controller]")]
     [ApiController]
     public class RecipeController : ControllerBase
     {
@@ -22,7 +23,7 @@ namespace RecipeApi.Controllers
             IRecipeRepository recipeRepository,
             IRecipeService recipeService,
             IUnitOfWork unitOfWork,
-            IRecipeDtoConverter recipeDtoConverter )
+            IRecipeDtoConverter recipeDtoConverter)
         {
             _recipeRepository = recipeRepository;
             _recipeService = recipeService;
@@ -50,10 +51,27 @@ namespace RecipeApi.Controllers
             return recipesDtos;
         }
 
-        [HttpGet("{nameoftag}")]
+        [HttpGet("findByTag/{nameoftag}")]
         public List<RecipeDto> GetRecipeByTag(string nameoftag)
         {
-            List<Recipe> recipes = _recipeRepository.GetAllRecipeByTag(nameoftag);
+            List<Recipe> recipes = _recipeRepository.GetAll()
+                .Where(item => IsTagsContainsTag(item.Tags, nameoftag))
+                .ToList();
+
+            List<RecipeDto> recipesDtos = new List<RecipeDto>();
+            foreach (var recipe in recipes)
+            {
+                recipesDtos.Add(_recipeDtoConverter.ConvertToRecipeDto(recipe));
+            }
+
+            return recipesDtos;
+        }
+
+        [HttpGet("findByName/{nameofrecipe}")]
+        public List<RecipeDto> GetRecipeByName(string nameofrecipe)
+        {
+            List<Recipe> recipes = _recipeRepository.GetByName(nameofrecipe);
+
             List<RecipeDto> recipesDtos = new List<RecipeDto>();
             foreach (var recipe in recipes)
             {
@@ -64,13 +82,13 @@ namespace RecipeApi.Controllers
         }
 
         [HttpPost]
-        public void AddRecipe( [FromBody] RecipeDto recipeDto )
+        public void AddRecipe([FromBody] RecipeDto recipeDto)
         {
-            _recipeService.AddRecipe( recipeDto );
+            _recipeService.AddRecipe(recipeDto);
             _unitOfWork.Commit();
-        }        
+        }
 
-        [HttpDelete( "{id}" )]
+        [HttpDelete("{id}")]
         public void DeleteRecipe(int id)
         {
             _recipeRepository.DeleteRecipe(id);
@@ -84,5 +102,11 @@ namespace RecipeApi.Controllers
             _unitOfWork.Commit();
         }
 
+        private bool IsTagsContainsTag(List<Tag> tags, string tag)
+        {
+            return tags
+                .Select(item => item.Name)
+                .Contains(tag);
+        }
     }
 }

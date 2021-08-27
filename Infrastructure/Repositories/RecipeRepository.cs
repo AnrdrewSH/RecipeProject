@@ -35,10 +35,10 @@ namespace Infrastructure.Repositories
                 .ToList();
         }
 
-        public List<Recipe> GetAllRecipeByTag(string nameoftag)
+        public List<Recipe> GetByName(string nameofrecipe)
         {
-            return _context.Set<Recipe>()
-                .Include(item => item.Tags.FirstOrDefault(x => x.Name == nameoftag))
+            return _context.Set<Recipe>().Where(item => item.RecipeName == nameofrecipe)
+                .Include(item => item.Tags)
                 .Include(item => item.Steps)
                 .Include(item => item.IngredientItems)
                 .ToList();
@@ -46,17 +46,11 @@ namespace Infrastructure.Repositories
 
         public Recipe GetById( int id )
         {
-            return GetQuery().FirstOrDefault(x => x.RecipeId == id);
-        }
-
-        private IQueryable<Recipe> GetQuery()
-        {
             return _context.Set<Recipe>()
-                .Include(x => x.Tags)
-                .Include(x => x.Steps)
-                .Include(x => x.IngredientItems)
-                .AsQueryable();
+                .Include(item => item.Tags)
+                .Include(item => item.Steps)
+                .Include(item => item.IngredientItems)
+                .FirstOrDefault(x => x.RecipeId == id);
         }
-
     }
 }

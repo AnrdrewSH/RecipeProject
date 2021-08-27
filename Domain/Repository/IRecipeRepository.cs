@@ -8,7 +8,7 @@ namespace Domain.Repository
         void Add(Recipe recipe);
         Recipe GetById(int id);
         List<Recipe> GetAll();
+        List<Recipe> GetByName(string nameofrecipe);
         void DeleteRecipe(int id);
-        List<Recipe> GetAllRecipeByTag(string nameoftag);
     }
 }
