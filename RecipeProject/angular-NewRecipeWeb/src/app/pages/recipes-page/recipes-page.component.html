@@ -1,0 +1,64 @@
+<div class="title-container">
+    <h1 class="page-title">Рецепты</h1>
+    <button (click)="openNewRecipe()" mat-button class="function-button">Добавить рецепт</button>
+</div>
+<div class="nav-section">
+    <div class="nav-section__tags">
+        <a class="tags" *ngFor="let category of Categories" (click)="GetRecipesByTag(category.name)">            
+            <img src="../../assets/{{category.photo}}" alt="#">
+            <h3 class="tags__title">{{category.name}}</h3>
+        </a>
+    </div>
+</div>
+<div class="page-wrapper">
+    <div class="page-wrapper__title">Поиск рецепта</div>
+    <div class="search-container">
+        <div class="search-container__search">
+            <input type="text" class="search-container__input" placeholder="Название Блюда...." [(ngModel)]="searchValue">
+            <button mat-button class="search-container__submit" (click)="GetRecipesByName()">Поиск</button>
+        </div>
+        <div class="search-container__nav">
+            <a *ngFor="let tag of MockTags" class="nav-container__link">{{tag.name}}</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="recipes-list-container" *ngFor="let recipe of recipesDtos">       
+        <img class="img" src="../../../assets/strawberry.png" alt="Клубника" (click)="goToPageByRecipeId(recipe.recipeId)">
+        <div class="recipe">
+            <div class="recipe__function">
+                <div class="recipe__tags">
+                    <a *ngFor="let tag of recipe.tags" class="recipe__tag" href="#">{{tag.name}}</a>
+                </div>
+                <div class="recipe__relation">
+                    <button mat-button class="recipe__button save" (click)="updateRecipeForStars(recipe.recipeId)">
+                        <img src="../../../assets/fav.svg" style="margin-top: -3px; margin-right: 10px;" alt="fav">
+                        {{recipe.stars}}</button>
+                    <button mat-button class="recipe__button like" (click)="updateRecipeForLike(recipe.recipeId)">
+                        <img src={{recipe.isLiked}} style="margin-right: 10px;" alt="like">
+                        {{recipe.likes}}</button>
+                </div>
+            </div>
+            <a style="text-decoration: none;">
+                <div class="recipe__title">{{recipe.recipeName}}</div>
+                <div class="recipe__description">{{recipe.recipeDescription}}</div>
+            </a>
+            <div class="recipe__info">
+                <div class="recipe-info__wrapper">
+                    <img src="../../../assets/clock.svg" class="img" alt="часы">
+                    <div>
+                        <div class="info">Время приготовления</div>
+                        <div class="info-description">{{recipe.cookingTime}} минут</div>
+                    </div>
+                </div>
+                <div class="recipe-info__wrapper">
+                    <img src="../../../assets/person.svg" class="img" style="width: 59px;" alt="человек">
+                    <div>
+                        <div class="info">Рецепт на</div>
+                        <div class="info-description">{{recipe.personNumber}} персон</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

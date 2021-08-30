@@ -52,5 +52,15 @@ namespace Infrastructure.Repositories
                 .Include(item => item.IngredientItems)
                 .FirstOrDefault(x => x.RecipeId == id);
         }
+
+        public List<Recipe> GetByFavorite()
+        {
+            return _context.Set<Recipe>().Where(item => item.Stars == 1)
+                .Include(item => item.Tags)
+                .Include(item => item.Steps)
+                .Include(item => item.IngredientItems)
+                .ToList();
+        }
+
     }
 }

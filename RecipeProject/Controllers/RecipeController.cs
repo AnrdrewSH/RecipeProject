@@ -81,6 +81,20 @@ namespace RecipeApi.Controllers
             return recipesDtos;
         }
 
+        [HttpGet("findByFavorite")]
+        public List<RecipeDto> GetRecipeByFavorite()
+        {
+            List<Recipe> recipes = _recipeRepository.GetByFavorite();
+
+            List<RecipeDto> recipesDtos = new List<RecipeDto>();
+            foreach (var recipe in recipes)
+            {
+                recipesDtos.Add(_recipeDtoConverter.ConvertToRecipeDto(recipe));
+            }
+
+            return recipesDtos;
+        }
+
         [HttpPost]
         public void AddRecipe([FromBody] RecipeDto recipeDto)
         {
@@ -95,8 +109,8 @@ namespace RecipeApi.Controllers
             _unitOfWork.Commit();
         }
 
-        [HttpPut("{id:int}")]
-        public void Put(int id, [FromBody] RecipeDto recipeDto)
+        [HttpPut("{id}")]
+        public void Put([FromBody] RecipeDto recipeDto)
         {
             _recipeService.Update(recipeDto);
             _unitOfWork.Commit();
