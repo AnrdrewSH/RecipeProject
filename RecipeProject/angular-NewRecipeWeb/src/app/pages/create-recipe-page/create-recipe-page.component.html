@@ -8,7 +8,9 @@
     </div>
     <div class="recipe-container-form">
         <div class="recipes-list-container">
-            <img class="img" src={{currentRecipeDtoImage}} alt="Добавить картинку">
+            <input matInput class="img" 
+            type="text" placeholder="Добавить картинку" 
+            name="imageName" [(ngModel)]="currentRecipeDtoImage">
             <form class="recipe">
                 <input class="input-data-name"
                 type="text" 

@@ -66,7 +66,7 @@ export class RecipeInfoPageComponent implements OnInit {
 
     if (recipeDtoById.likes == 0) this.currentRecipeDtoIsLiked = "../../../assets/like.svg";
     else this.currentRecipeDtoIsLiked = "../../../assets/PushedLike.svg";
-    
+
     for (let i = 0; i < recipeDtoById.steps.length; i++)
     {
       let newStepNumber = i + 1;
@@ -94,10 +94,8 @@ export class RecipeInfoPageComponent implements OnInit {
     this.router.navigate(['/'])
   }
 
-  async updateRecipeForLike(recipeId: number)
-  {
-    this.currentRecipeDtoId = recipeId;
-    
+  async updateRecipeForLike()
+  {    
     recipeDtoById = await this._http.get<RecipeDto>('/api/Recipe/' + this.currentRecipeDtoId).toPromise();
     this.currentRecipeDtoName = recipeDtoById.recipeName;
     this.currentRecipeDtoDescription = recipeDtoById.recipeDescription;
@@ -127,7 +125,7 @@ export class RecipeInfoPageComponent implements OnInit {
       this.tags,
       this.ingredientItems);
 
-    await this._http.put(`/api/Recipe/${recipeId}`, newRecipeDto).toPromise();    
+    await this._http.put(`/api/Recipe/${this.currentRecipeDtoId}`, newRecipeDto).toPromise();    
     recipeDtoById = await this._http.get<RecipeDto>('/api/Recipe/' + this.currentRecipeDtoId).toPromise();    
 
     if (recipeDtoById.likes == 0) this.currentRecipeDtoIsLiked = "../../../assets/like.svg";
