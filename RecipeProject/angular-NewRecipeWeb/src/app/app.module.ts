@@ -14,12 +14,12 @@ import { DialogLoginComponent } from './components/dialog-login/dialog-login.com
 import { DialogSignupComponent } from './components/dialog-signup/dialog-signup.component';
 import { CreateRecipePageComponent } from './pages/create-recipe-page/create-recipe-page.component';
 import { DialogOptionsComponent } from './components/dialog-options/dialog-options.component';
-import { RecipeService } from './services/recipe.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { ChangeRecipePageComponent } from './pages/change-recipe-page/change-recipe-page.component';
 import { FavoritesRecipePageComponent } from './pages/favorites-recipe-page/favorites-recipe-page.component';
+import { RecipeInfoPageComponent } from './pages/recipe-info-page/recipe-info-page.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import { FavoritesRecipePageComponent } from './pages/favorites-recipe-page/favo
     DialogOptionsComponent,
     ChangeRecipePageComponent,
     FavoritesRecipePageComponent,
+    RecipeInfoPageComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +45,8 @@ import { FavoritesRecipePageComponent } from './pages/favorites-recipe-page/favo
     BrowserAnimationsModule,
     MatInputModule,
     HttpClientModule,
-    FormsModule 
+    FormsModule
   ],
-  providers: [RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,6 +11,7 @@ export class RecipeDto {
   public likes: number;
   public isLiked: string = "../../../assets/like.svg";
   public stars: number;
+  public recipeImage: string;
   public steps: StepItem[];
   public tags: TagItem[];
   public ingredientItems: IngredientItem[];
@@ -24,6 +25,7 @@ export class RecipeDto {
     likes: number,
     isLiked: string,
     stars: number,
+    recipeImage: string,
     steps: StepItem[],
     tags: TagItem[],
     ingredientItems: IngredientItem[])
@@ -36,6 +38,7 @@ export class RecipeDto {
     this.likes = likes;
     this.isLiked = isLiked;
     this.stars = stars;
+    this.recipeImage = recipeImage;
     this.steps = steps;
     this.tags = tags;
     this.ingredientItems = ingredientItems;

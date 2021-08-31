@@ -10,11 +10,11 @@
         </div>
     </div>
     <div class="recipes-list-container">
-        <img class="img" src="../../../assets/strawberry.png" alt="Клубника">
+        <img class="img" src={{currentRecipeDtoImage}} alt="Клубника">
         <div class="recipe">
             <div class="recipe__function">
                 <div class="recipe__tags">
-                    <a *ngFor="let tag of tags" class="recipe__tag" href="#">{{tag.name}}</a>
+                    <a *ngFor="let tag of Tags" class="recipe__tag" href="#">{{tag.name}}</a>
                 </div>
                 <div class="recipe__relation">
                     <button mat-button class="recipe__button save">

@@ -16,6 +16,7 @@ namespace Application.Services.Converters
                 CookingTime = recipeDto.CookingTime,
                 Likes = recipeDto.Likes,
                 Stars = recipeDto.Stars,
+                RecipeImage = recipeDto.RecipeImage,
                 Tags = recipeDto.Tags.Select( x => new Tag { Name = x.Name, RecipeId = recipeDto.RecipeId } ).ToList(),
                 IngredientItems = recipeDto.IngredientItems.Select( x => new IngredientItem { IngredientItemName = x.IngredientItemName, Products = x.Products, RecipeId = x.RecipeId } ).ToList(),
                 Steps = recipeDto.Steps.Select( x => new Step { StepDescription = x.StepDescription, RecipeId = x.RecipeId } ).ToList(),

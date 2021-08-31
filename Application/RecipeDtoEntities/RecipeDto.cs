@@ -11,6 +11,7 @@ namespace Application.RecipeDtoEntities
         public int CookingTime { get; set; }
         public int Likes { get; set; }
         public int Stars { get; set; }
+        public string RecipeImage { get; set; }
         public List<IngredientItemDto> IngredientItems { get; set; }
         public List<TagDto> Tags { get; set; }
         public List<StepDto> Steps { get; set; }

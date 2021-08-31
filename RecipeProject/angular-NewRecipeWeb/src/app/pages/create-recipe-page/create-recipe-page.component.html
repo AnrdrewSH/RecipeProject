@@ -8,20 +8,23 @@
     </div>
     <div class="recipe-container-form">
         <div class="recipes-list-container">
-            <img class="img" src="../../../assets/addphoto.png" alt="Добавить картинку">
+            <img class="img" src={{currentRecipeDtoImage}} alt="Добавить картинку">
             <form class="recipe">
                 <input class="input-data-name"
                 type="text" 
+                name="name"
                 [(ngModel)]="currentRecipeDtoName"
-                placeholder="Название рецепта" >
+                placeholder="Название рецепта">
                 
                 <textarea class="input-data-name description" 
                 placeholder="Краткое описание рецепта (150 символов)" 
+                name="description"
                 [(ngModel)]="currentRecipeDtoDescription"></textarea>
 
                 <input class="input-data-name" 
                 type="text" 
                 placeholder="Добавить теги" 
+                name="tagName"
                 [(ngModel)]="currentTagItemName">
 
                 <div class="info-container">
@@ -29,6 +32,7 @@
                         <input class="input-data-name info" 
                         type="number" 
                         placeholder="Время готовки" 
+                        name="time"
                         [(ngModel)]="currentRecipeDtoCookingTime">
                         <div class="text">Минут</div>
                     </div>
@@ -36,6 +40,7 @@
                         <input class="input-data-name info" 
                         type="number" 
                         placeholder="Порций в блюде" 
+                        name="number"
                         [(ngModel)]="currentRecipeDtoPersonNumber">
                         <div class="text">Персон</div>
                     </div>
@@ -52,12 +57,14 @@
                     type="text" 
                     style="width: 320px;" 
                     placeholder="Заголовок для ингридиентов" 
-                    [(ngModel)]="currentIngredientItemName">
+                    name="name"
+                    [(ngModel)]="ingredientitem.ingredientItemName">
 
                     <textarea class="input-text-ingredient" 
                     type="text" 
                     placeholder="Список продуктов для категории" 
-                    [(ngModel)]="currentIngredientItemProducts"></textarea>
+                    name="products"
+                    [(ngModel)]="ingredientitem.products"></textarea>
                 </form>
             </div>
             <button class="title-step" (click)="addIngredientItem()">Добавить заголовок</button>
@@ -69,7 +76,8 @@
                 <textarea
                     class="input-data-step"
                     placeholder="Описание шага"
-                    [(ngModel)]="currentStepItemName"></textarea>
+                    name="name"
+                    [(ngModel)]="stepitem.stepDescription"></textarea>
             </div>
             <button class="title-step" (click)="addStepItem()" style="margin-left: 200px;">Добавить шаг</button>
         </div>

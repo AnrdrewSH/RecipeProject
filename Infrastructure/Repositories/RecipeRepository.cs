@@ -37,7 +37,7 @@ namespace Infrastructure.Repositories
 
         public List<Recipe> GetByName(string nameofrecipe)
         {
-            return _context.Set<Recipe>().Where(item => item.RecipeName == nameofrecipe)
+            return _context.Set<Recipe>().Where(item => item.RecipeName.Contains(nameofrecipe))
                 .Include(item => item.Tags)
                 .Include(item => item.Steps)
                 .Include(item => item.IngredientItems)

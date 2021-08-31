@@ -11,27 +11,35 @@
     </div>
     <div class="recipe-container-form">
         <div class="recipes-list-container" *ngFor="let recipe of recipeDtosById">
-            <img class="img" src="../../../assets/addphoto.png" alt="Добавить картинку">
+            <input matInput class="img" 
+            type="text" placeholder="Добавить картинку" 
+            name="imageName" [(ngModel)]="currentRecipeDtoImage">
+
             <form class="recipe">
                 <input matInput class="input-data-name" 
                 type="text" placeholder="Название рецепта" 
+                name="name"
                 [(ngModel)]="currentRecipeDtoName">
 
                 <textarea matInput 
                 class="input-data-name description" 
                 placeholder="Краткое описание рецепта (150 символов)" 
+                name="description"
                 [(ngModel)]="currentRecipeDtoDescription"></textarea>
 
                 <input matInput 
                 class="input-data-name" 
                 type="text" 
-                placeholder="Добавить теги" [(ngModel)]="currentTagItemName">
+                placeholder="Добавить теги" 
+                name="tagName"
+                [(ngModel)]="StringTagsLine">
 
                 <div class="info-container">
                     <div class="info-container__wrapper">
                         <input matInput 
                         class="input-data-name info" 
-                        type="number" placeholder="Время готовки" 
+                        type="number" placeholder="Время готовки"
+                        name="time" 
                         [(ngModel)]="currentRecipeDtoCookingTime">
                         <div class="text">Минут</div>
                     </div>
@@ -40,6 +48,7 @@
                         class="input-data-name info" 
                         type="number" 
                         placeholder="Порций в блюде" 
+                        name="number"
                         [(ngModel)]="currentRecipeDtoPersonNumber">
                         <div class="text">Персон</div>
                     </div>
@@ -51,17 +60,20 @@
         <div class="ingedient-box" style="width: 380px; margin-right: 30px;">
             <h3 class="title-ingredient">Ингридиенты</h3>
             <div class="ingedient-box__wrapper" *ngFor="let ingredientitem of ingredientItems">
+                <div>{{ingredientitem.ingredientItemName}}</div>
                 <form> 
                     <input matInput 
                     class="input-data-ingredient" 
                     type="text" style="width: 320px;" 
-                    placeholder="Заголовок для ингридиентов" 
+                    placeholder="Заголовок для ингридиентов"
+                    name="name" 
                     [(ngModel)]="ingredientitem.ingredientItemName">
 
                     <textarea matInput 
                     class="input-text-ingredient" 
                     type="text" 
                     placeholder="Список продуктов для категории" 
+                    name="products"
                     [(ngModel)]="ingredientitem.products"></textarea>
                 </form>
             </div>
@@ -74,6 +86,7 @@
                 <textarea
                     class="input-data-step"
                     placeholder="Описание шага"
+                    name="name"
                     matInput [(ngModel)]="stepItem.stepDescription"></textarea>
             </div>
             <button class="title-step" (click)="addStepItem()" style="margin-left: 200px;">Добавить шаг</button>

@@ -18,6 +18,7 @@ namespace Infrastructure.Configurations
             builder.Property(item => item.CookingTime).IsRequired();
             builder.Property(item => item.Likes).IsRequired();
             builder.Property(item => item.Stars).IsRequired();
+            builder.Property(item => item.RecipeImage).IsRequired();
             builder.HasMany(item => item.Tags)
                 .WithOne()
                 .HasForeignKey(item => item.RecipeId)

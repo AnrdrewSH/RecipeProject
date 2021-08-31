@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute} from '@angular/router';
 import { RecipeDto } from 'src/app/Classes/RecipeDto';
 import { StepItem } from 'src/app/Classes/StepItem';
@@ -40,7 +40,8 @@ export class RecipesPageComponent implements OnInit {
   currentRecipeDtoLikes = 0;
   currentRecipeDtoIsLiked = "../../../assets/like.svg";
   currentRecipeDtoStars = 0;
-
+  currentRecipeDtoImage = '';
+  
   currentStepItemNumber = 1;
   currentStepItemName = '';
   steps: StepItem[] = [];
@@ -97,6 +98,7 @@ export class RecipesPageComponent implements OnInit {
     this.currentRecipeDtoCookingTime = recipeDtoById.cookingTime;
     this.currentRecipeDtoLikes = recipeDtoById.likes;
     this.currentRecipeDtoStars = recipeDtoById.stars;
+    this.currentRecipeDtoImage = recipeDtoById.recipeImage;
     this.steps = recipeDtoById.steps;
     this.tags = recipeDtoById.tags;
     this.ingredientItems = recipeDtoById.ingredientItems;
@@ -113,6 +115,7 @@ export class RecipesPageComponent implements OnInit {
       this.currentRecipeDtoLikes,
       this.currentRecipeDtoIsLiked,
       this.currentRecipeDtoStars,
+      this.currentRecipeDtoImage,
       this.steps,
       this.tags,
       this.ingredientItems);
@@ -138,6 +141,7 @@ export class RecipesPageComponent implements OnInit {
     this.currentRecipeDtoCookingTime = recipeDtoById.cookingTime;
     this.currentRecipeDtoLikes = recipeDtoById.likes;
     this.currentRecipeDtoStars = recipeDtoById.stars;
+    this.currentRecipeDtoImage = recipeDtoById.recipeImage;
     this.steps = recipeDtoById.steps;
     this.tags = recipeDtoById.tags;
     this.ingredientItems = recipeDtoById.ingredientItems;
@@ -154,6 +158,7 @@ export class RecipesPageComponent implements OnInit {
       this.currentRecipeDtoLikes,
       this.currentRecipeDtoIsLiked,
       this.currentRecipeDtoStars,
+      this.currentRecipeDtoImage,
       this.steps,
       this.tags,
       this.ingredientItems);
@@ -177,6 +182,8 @@ export class RecipesPageComponent implements OnInit {
       {
         delete this.recipesDtos[i];
       }
+      if (this.recipesDtos[i].likes == 0) this.recipesDtos[i].isLiked = "../../../assets/like.svg";
+      else this.recipesDtos[i].isLiked = "../../../assets/PushedLike.svg";
     }
   }
 
@@ -189,6 +196,8 @@ export class RecipesPageComponent implements OnInit {
       {
         delete this.recipesDtos[i];
       }
+      if (this.recipesDtos[i].likes == 0) this.recipesDtos[i].isLiked = "../../../assets/like.svg";
+      else this.recipesDtos[i].isLiked = "../../../assets/PushedLike.svg";
     }
   }
 

@@ -35,5 +35,11 @@ export class FavoritesRecipePageComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.recipesDtos = await this._http.get<RecipeDto[]>('/api/Recipe/findByFavorite').toPromise();
+
+    for (let i = 0; i < this.recipesDtos.length; i++)
+    {
+      if (this.recipesDtos[i].likes == 0) this.recipesDtos[i].isLiked = "../../../assets/like.svg";
+      else this.recipesDtos[i].isLiked = "../../../assets/PushedLike.svg";
+    }
   }
 }

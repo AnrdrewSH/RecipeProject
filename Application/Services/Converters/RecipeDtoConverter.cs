@@ -22,6 +22,7 @@ namespace Application.Services.Converters
                 CookingTime = recipe.CookingTime,
                 Likes = recipe.Likes,
                 Stars = recipe.Stars,
+                RecipeImage = recipe.RecipeImage,
                 Tags = recipe.Tags
                     .Select( x => new TagDto
                     {

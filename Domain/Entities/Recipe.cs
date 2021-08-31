@@ -11,6 +11,7 @@ namespace Domain.Entities
         public int CookingTime { get; set; }
         public int Likes { get; set; }
         public int Stars { get; set; }
+        public string RecipeImage { get; set; }
         public List<IngredientItem> IngredientItems { get; set; }
         public List<Tag> Tags { get; set; }
         public List<Step> Steps { get; set; }
@@ -23,6 +24,7 @@ namespace Domain.Entities
             CookingTime = recipe.CookingTime;
             Likes = recipe.Likes;
             Stars = recipe.Stars;
+            RecipeImage = recipe.RecipeImage;
             IngredientItems = recipe.IngredientItems;
             Tags = recipe.Tags;
             Steps = recipe.Steps;

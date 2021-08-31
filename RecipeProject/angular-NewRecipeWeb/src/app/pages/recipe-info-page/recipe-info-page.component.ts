@@ -5,7 +5,6 @@ import { RecipeDto } from 'src/app/Classes/RecipeDto';
 import { StepItem } from 'src/app/Classes/StepItem';
 import { TagItem } from 'src/app/Classes/TagItem';
 import { IngredientItem } from 'src/app/Classes/IngredientItem';
-import { ProductItem } from 'src/app/Classes/ProductItem';
 
 var recipeDtoById: RecipeDto;
 
@@ -29,11 +28,12 @@ export class RecipeInfoPageComponent implements OnInit {
   
   currentRecipeDtoName = '';
   currentRecipeDtoDescription = '';
-  currentRecipeDtoPersonNumber = 1;
-  currentRecipeDtoCookingTime = 1;
+  currentRecipeDtoPersonNumber = 0;
+  currentRecipeDtoCookingTime = 0;
   currentRecipeDtoLikes = 0;
   currentRecipeDtoStars = 0;
   currentRecipeDtoIsLiked = "../../../assets/like.svg";
+  currentRecipeDtoImage = '';
 
   currentStepItemNumber = 1;
   currentStepItemName = '';
@@ -43,10 +43,8 @@ export class RecipeInfoPageComponent implements OnInit {
   Tags: TagItem[] = [];
   StringTags: string[] =[];
 
-  StringProducts: string[] = []
   currentIngredientItemName = '';
-  currentProductItemName = '';
-  Products: ProductItem[] = [];
+  currentIngredientItemProduct = '';
   IngredientItems: IngredientItem[] = [];
 
   currentRecipeDtoId = 0;
@@ -54,34 +52,26 @@ export class RecipeInfoPageComponent implements OnInit {
   async ngOnInit(): Promise<void>
   {
     this.currentRecipeDtoId = Number(this.route.snapshot.paramMap.get('id'));
+
     recipeDtoById = await this._http.get<RecipeDto>('/api/Recipe/' + this.currentRecipeDtoId).toPromise();
+
     this.currentRecipeDtoName = recipeDtoById.recipeName;
     this.currentRecipeDtoDescription = recipeDtoById.recipeDescription;
     this.currentRecipeDtoPersonNumber = recipeDtoById.personNumber;
     this.currentRecipeDtoCookingTime = recipeDtoById.cookingTime;
     this.currentRecipeDtoLikes = recipeDtoById.likes;
     this.currentRecipeDtoStars = recipeDtoById.stars;
+    this.currentRecipeDtoImage = recipeDtoById.recipeImage;
+    
     for (let i = 0; i < recipeDtoById.steps.length; i++)
     {
       let newStepNumber = i + 1;
       let newStep: StepItem = new StepItem(recipeDtoById.steps[i].stepDescription, newStepNumber)
       this.steps.push(newStep);
     }
+
     this.Tags = recipeDtoById.tags;
     this.IngredientItems = recipeDtoById.ingredientItems;
-    // let newRecipeDto: RecipeDto = new RecipeDto(this.currentRecipeDtoId, 
-    //   this.currentRecipeDtoName, 
-    //   this.currentRecipeDtoDescription,
-    //   this.currentRecipeDtoPersonNumber,
-    //   this.currentRecipeDtoCookingTime,
-    //   this.currentRecipeDtoLikes,
-    //   this.currentRecipeDtoIsLiked,
-    //   this.currentRecipeDtoStars,
-    //   this.steps,
-    //   this.Tags,
-    //   this.IngredientItems)
-    
-    console.log(this.steps);
   }
   
   async goBack()

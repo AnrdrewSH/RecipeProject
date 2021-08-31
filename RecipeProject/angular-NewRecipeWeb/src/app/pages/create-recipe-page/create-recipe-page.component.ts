@@ -13,7 +13,7 @@ import { IngredientItem } from 'src/app/Classes/IngredientItem';
 })
 
 export class CreateRecipePageComponent implements OnInit {
-    
+  
   currentStepItemNumber = 1;
   currentStepItemName = '';
   steps: StepItem[];
@@ -34,6 +34,7 @@ export class CreateRecipePageComponent implements OnInit {
   currentRecipeDtoLikes = 0;
   currentRecipeDtoIsLiked = "../../../assets/like.svg";
   currentRecipeDtoStars = 0;
+  currentRecipeDtoImage = '';
 
   recipeDtos: RecipeDto[] = [];
 
@@ -46,9 +47,7 @@ export class CreateRecipePageComponent implements OnInit {
     this.steps = [];
   }
 
-  async ngOnInit(): Promise<void> {
-    console.log(this.currentIngredientItemName);
-  }
+  async ngOnInit(): Promise<void> {}
 
   async addRecipe(recipeDto: RecipeDto): Promise<void>{
     await this._http.post<void>('/api/Recipe', recipeDto).toPromise()
@@ -82,7 +81,9 @@ export class CreateRecipePageComponent implements OnInit {
   }
 
   async addIngredientItem() {
-    let newIngredientItem: IngredientItem = new IngredientItem(this.currentIngredientItemName, this.currentIngredientItemProducts);
+    let newIngredientItem: IngredientItem = new IngredientItem(
+    this.currentIngredientItemName,
+    this.currentIngredientItemProducts);
 
     this.ingredientItems.push( newIngredientItem );
   }
@@ -96,8 +97,6 @@ export class CreateRecipePageComponent implements OnInit {
       this.steps.length > 0 &&
       this.ingredientItems.length > 0)
       {
-        this.steps.splice(0, 1);
-        this.ingredientItems.splice(0, 1);
         this.addTagItem();
         let newRecipeDto: RecipeDto = new RecipeDto(
         this.currentRecipeDtoId,
@@ -108,6 +107,7 @@ export class CreateRecipePageComponent implements OnInit {
         this.currentRecipeDtoLikes,
         this.currentRecipeDtoIsLiked,
         this.currentRecipeDtoStars,
+        this.currentRecipeDtoImage,
         this.steps,
         this.tags,
         this.ingredientItems);
