@@ -84,7 +84,7 @@ export class RecipesPageComponent implements OnInit {
 
   goToPageByRecipeId(recipeId: number)
   {
-    this.router.navigate(['/recipe_info/:id', {id: recipeId}])
+    this.router.navigate(['/recipe_info/' + recipeId])
   }
 
   async updateRecipeForLike(recipeId: number)
@@ -146,8 +146,8 @@ export class RecipesPageComponent implements OnInit {
     this.tags = recipeDtoById.tags;
     this.ingredientItems = recipeDtoById.ingredientItems;
 
-    if (this.currentRecipeDtoStars == 0) this.currentRecipeDtoStars++, this.isFavorite = true;
-    else this.currentRecipeDtoStars--, this.isFavorite = false;
+    if (this.currentRecipeDtoStars == 0) this.currentRecipeDtoStars++;
+    else this.currentRecipeDtoStars--;
 
     let newRecipeDto: RecipeDto = new RecipeDto(
       this.currentRecipeDtoId,

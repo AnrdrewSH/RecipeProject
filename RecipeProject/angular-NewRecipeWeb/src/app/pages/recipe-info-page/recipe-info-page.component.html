@@ -10,19 +10,26 @@
         </div>
     </div>
     <div class="recipes-list-container">
-        <img class="img" src={{currentRecipeDtoImage}} alt="Клубника">
+        <div class="image">
+            <img src={{currentRecipeDtoImage}} alt="Клубника">
+        </div>
         <div class="recipe">
             <div class="recipe__function">
                 <div class="recipe__tags">
-                    <a *ngFor="let tag of Tags" class="recipe__tag" href="#">{{tag.name}}</a>
+                    <a *ngFor="let tag of tags" class="recipe__tag" href="#">{{tag.name}}</a>
                 </div>
                 <div class="recipe__relation">
                     <button mat-button class="recipe__button save">
-                        <img src="../../../assets/fav.svg" style="margin-top: -3px; margin-right: 10px;" alt="fav">
-                        {{currentRecipeDtoLikes}}</button>
+                        <img src="../../../assets/fav.svg" 
+                        (click)="updateRecipeForStars(currentRecipeDtoId)" 
+                        style="margin-top: -3px; margin-right: 10px;" 
+                        alt="fav">{{currentRecipeDtoStars}}</button>   
+
                     <button mat-button class="recipe__button like">
-                        <img src="../../../assets/like.svg" style="margin-right: 10px;" alt="like">
-                        {{currentRecipeDtoStars}}</button>
+                        <img src={{currentRecipeDtoIsLiked}} 
+                        (click)="updateRecipeForLike(currentRecipeDtoId)" 
+                        style="margin-right: 10px;" 
+                        alt="like">{{currentRecipeDtoLikes}}</button>                       
                 </div>
             </div>
             <a style="text-decoration: none; cursor: pointer;">
@@ -30,14 +37,14 @@
             </a>
             <div class="recipe__info">
                 <div class="recipe-info__wrapper">
-                    <img src="../../../assets/clock.svg" class="img" alt="часы">
+                    <img src="../../../assets/clock.svg" class="icon" alt="часы">
                     <div>
                         <div class="info">Время приготовления</div>
                         <div class="info-description">{{currentRecipeDtoCookingTime}} минут</div>
                     </div>
                 </div>
                 <div class="recipe-info__wrapper">
-                    <img src="../../../assets/person.svg" class="img" style="width: 59px;" alt="человек">
+                    <img src="../../../assets/person.svg" class="icon" style="width: 59px;" alt="человек">
                     <div>
                         <div class="info">Рецепт на</div>
                         <div class="info-description">{{currentRecipeDtoPersonNumber}} персон</div>
@@ -50,7 +57,7 @@
 <div class="extra-container">
     <div class="ingedient-box">
         <h3 class="title-ingredient">Ингридиенты</h3>
-        <div class="ingedient-box__wrapper" *ngFor="let ingredientItem of IngredientItems">
+        <div class="ingedient-box__wrapper" *ngFor="let ingredientItem of ingredientItems">
           <div class="input-data_ingredient">{{ingredientItem.ingredientItemName}}</div>
           <div class="input-text">{{ingredientItem.products}}</div>
         </div>

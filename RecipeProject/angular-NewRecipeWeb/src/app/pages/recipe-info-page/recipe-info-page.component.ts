@@ -40,12 +40,12 @@ export class RecipeInfoPageComponent implements OnInit {
   steps: StepItem[] = [];
 
   currentTagItemName = '';
-  Tags: TagItem[] = [];
+  tags: TagItem[] = [];
   StringTags: string[] =[];
 
   currentIngredientItemName = '';
   currentIngredientItemProduct = '';
-  IngredientItems: IngredientItem[] = [];
+  ingredientItems: IngredientItem[] = [];
 
   currentRecipeDtoId = 0;
 
@@ -61,7 +61,11 @@ export class RecipeInfoPageComponent implements OnInit {
     this.currentRecipeDtoCookingTime = recipeDtoById.cookingTime;
     this.currentRecipeDtoLikes = recipeDtoById.likes;
     this.currentRecipeDtoStars = recipeDtoById.stars;
+    this.currentRecipeDtoIsLiked = recipeDtoById.isLiked;
     this.currentRecipeDtoImage = recipeDtoById.recipeImage;
+
+    if (recipeDtoById.likes == 0) this.currentRecipeDtoIsLiked = "../../../assets/like.svg";
+    else this.currentRecipeDtoIsLiked = "../../../assets/PushedLike.svg";
     
     for (let i = 0; i < recipeDtoById.steps.length; i++)
     {
@@ -70,8 +74,8 @@ export class RecipeInfoPageComponent implements OnInit {
       this.steps.push(newStep);
     }
 
-    this.Tags = recipeDtoById.tags;
-    this.IngredientItems = recipeDtoById.ingredientItems;
+    this.tags = recipeDtoById.tags;
+    this.ingredientItems = recipeDtoById.ingredientItems;
   }
   
   async goBack()
@@ -81,13 +85,90 @@ export class RecipeInfoPageComponent implements OnInit {
 
   async goToUpdateRecipe()
   {
-    this.router.navigate(['/change_recipe/:id', {id: this.currentRecipeDtoId}]);
+    this.router.navigate(['/change_recipe/' + this.currentRecipeDtoId]);
   }
 
   async deleteRecipe()
   {
     await this._http.delete<RecipeDto>('/api/Recipe/' + this.currentRecipeDtoId).toPromise();
     this.router.navigate(['/'])
+  }
+
+  async updateRecipeForLike(recipeId: number)
+  {
+    this.currentRecipeDtoId = recipeId;
+    
+    recipeDtoById = await this._http.get<RecipeDto>('/api/Recipe/' + this.currentRecipeDtoId).toPromise();
+    this.currentRecipeDtoName = recipeDtoById.recipeName;
+    this.currentRecipeDtoDescription = recipeDtoById.recipeDescription;
+    this.currentRecipeDtoPersonNumber = recipeDtoById.personNumber;
+    this.currentRecipeDtoCookingTime = recipeDtoById.cookingTime;
+    this.currentRecipeDtoLikes = recipeDtoById.likes;
+    this.currentRecipeDtoStars = recipeDtoById.stars;
+    this.currentRecipeDtoImage = recipeDtoById.recipeImage;
+    this.steps = recipeDtoById.steps;
+    this.tags = recipeDtoById.tags;
+    this.ingredientItems = recipeDtoById.ingredientItems;
+
+    if (this.currentRecipeDtoLikes == 0) this.currentRecipeDtoLikes++;
+    else this.currentRecipeDtoLikes--;
+
+    let newRecipeDto: RecipeDto = new RecipeDto(
+      this.currentRecipeDtoId,
+      this.currentRecipeDtoName,
+      this.currentRecipeDtoDescription,
+      this.currentRecipeDtoPersonNumber,
+      this.currentRecipeDtoCookingTime,
+      this.currentRecipeDtoLikes,
+      this.currentRecipeDtoIsLiked,
+      this.currentRecipeDtoStars,
+      this.currentRecipeDtoImage,
+      this.steps,
+      this.tags,
+      this.ingredientItems);
+
+    await this._http.put(`/api/Recipe/${recipeId}`, newRecipeDto).toPromise();    
+    recipeDtoById = await this._http.get<RecipeDto>('/api/Recipe/' + this.currentRecipeDtoId).toPromise();    
+
+    if (recipeDtoById.likes == 0) this.currentRecipeDtoIsLiked = "../../../assets/like.svg";
+    else this.currentRecipeDtoIsLiked = "../../../assets/PushedLike.svg";
+  }
+
+  async updateRecipeForStars(recipeId: number)
+  {
+    this.currentRecipeDtoId = recipeId;
+    
+    recipeDtoById = await this._http.get<RecipeDto>('/api/Recipe/' + this.currentRecipeDtoId).toPromise();
+    this.currentRecipeDtoName = recipeDtoById.recipeName;
+    this.currentRecipeDtoDescription = recipeDtoById.recipeDescription;
+    this.currentRecipeDtoPersonNumber = recipeDtoById.personNumber;
+    this.currentRecipeDtoCookingTime = recipeDtoById.cookingTime;
+    this.currentRecipeDtoLikes = recipeDtoById.likes;
+    this.currentRecipeDtoStars = recipeDtoById.stars;
+    this.currentRecipeDtoImage = recipeDtoById.recipeImage;
+    this.steps = recipeDtoById.steps;
+    this.tags = recipeDtoById.tags;
+    this.ingredientItems = recipeDtoById.ingredientItems;
+
+    if (this.currentRecipeDtoStars == 0) this.currentRecipeDtoStars++
+    else this.currentRecipeDtoStars--;
+
+    let newRecipeDto: RecipeDto = new RecipeDto(
+      this.currentRecipeDtoId,
+      this.currentRecipeDtoName,
+      this.currentRecipeDtoDescription,
+      this.currentRecipeDtoPersonNumber,
+      this.currentRecipeDtoCookingTime,
+      this.currentRecipeDtoLikes,
+      this.currentRecipeDtoIsLiked,
+      this.currentRecipeDtoStars,
+      this.currentRecipeDtoImage,
+      this.steps,
+      this.tags,
+      this.ingredientItems);
+
+    await this._http.put(`/api/Recipe/${recipeId}`, newRecipeDto).toPromise();
+
   }
 
 }
